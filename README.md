@@ -4,21 +4,40 @@
 
 **每轮只学一个功能。** 教练先画一张简图，提出第一问，等你预测。你答完，它才带你看实际文件和关键几行，解释结果，再往下走。通常一轮 5–8 问，最多 10 问。最后换一个此前没讲过的条件，由你独立判断，再留下一张可以接着用的学习卡。
 
-## 安装第一版
+## 一键安装
 
-1. 下载并解压 [项目走读教练 v1.0.0 安装包](https://github.com/Lingo666/offerhunter/releases/download/v1.0.0/project-reading-coach-v1.0.0.zip)。找到里面直接包含 `SKILL.md` 的 `project-reading-coach` 文件夹。
-2. 按下表选一个本地工具，把**整个文件夹**放进对应的个人目录。如果目录还没有，先创建。安装一次，之后切换到其他项目也能使用。
+**把下面这句话发给本机的 Codex 或 Claude Code 即可。** 装进个人目录后，换一个项目也能用。
 
-   | 你用的工具 | 安装后的文件位置 | 在项目对话中输入 |
-   | --- | --- | --- |
-   | Codex | `~/.agents/skills/project-reading-coach/SKILL.md` | `$project-reading-coach` |
-   | Claude Code | `~/.claude/skills/project-reading-coach/SKILL.md` | `/project-reading-coach` |
+```text
+请按 https://github.com/Lingo666/offerhunter 的安装说明，为你当前所在的工具安装个人技能 project-reading-coach v1.0.0，装好后检查 SKILL.md 并告诉我怎么开始第一问。
+```
 
-   `~` 表示你的用户主目录。如果只想在一个项目里使用，就把表中的 `~` 换成该项目根目录。安装位置也可查阅 [Codex 文档](https://developers.openai.com/codex/skills/) 和 [Claude Code 文档](https://code.claude.com/docs/en/skills)。
+### 在终端安装
 
-3. 在工具里打开**你想学习的源码目录**，新开一个本地对话。输入表中对应的调用名，接上下面这段话。若找不到 skill，先检查 `SKILL.md` 的完整路径，特别留意解压后是否多套了一层目录。
+选自己使用的工具，复制对应的一行。命令需要 Git 和带有 `npx` 的 Node.js 22.20 或更高版本。[安装工具说明](https://github.com/vercel-labs/skills)
+
+**Codex**
+
+```sh
+npx -y skills@1.9.0 add Lingo666/offerhunter@v1.0.0 --skill project-reading-coach -a codex -g --copy -y
+```
+
+**Claude Code**
+
+```sh
+npx -y skills@1.9.0 add Lingo666/offerhunter@v1.0.0 --skill project-reading-coach -a claude-code -g --copy -y
+```
+
+| 工具 | 安装后可检查的文件 | 在新对话中调用 |
+| --- | --- | --- |
+| Codex | `~/.agents/skills/project-reading-coach/SKILL.md` | `$project-reading-coach` |
+| Claude Code | `~/.claude/skills/project-reading-coach/SKILL.md` | `/project-reading-coach` |
+
+如果电脑缺少 Git 或合适的 Node.js，agent 可以直接下载 [v1.0.0 安装包](https://github.com/Lingo666/offerhunter/releases/download/v1.0.0/project-reading-coach-v1.0.0.zip)，将解压后的整个 `project-reading-coach` 文件夹放到表中对应的位置。`~` 表示用户主目录。[Codex 技能目录](https://developers.openai.com/codex/skills/) · [Claude Code 技能目录](https://code.claude.com/docs/en/skills)
 
 ## 第一次怎么用
+
+打开**你想学习的源码目录**，新开一个本地对话，输入上表中的调用名，再加上这句话。
 
 > 带我读当前项目。我会读基本的代码，但第一次接触这个仓库，今天有 25 分钟。请挑一个我能观察到结果的功能，先画从输入到输出的简图，再只问第一题，等我回答。
 
