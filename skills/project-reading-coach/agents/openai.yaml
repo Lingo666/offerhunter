@@ -1,0 +1,4 @@
+interface:
+  display_name: "项目走读教练"
+  short_description: "选一个你感兴趣的功能，逐问读懂代码中的数据流，再用新条件检验理解"
+  default_prompt: "用 $project-reading-coach 带我读当前项目。选一个能看到结果的功能，先画简图，只问第一题，等我回答。"
